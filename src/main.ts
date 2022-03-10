@@ -21,7 +21,7 @@ const MESSAGE_REGEX =
 
 http
   .createServer(() => {
-    const client = new WebSocket("wss://irc-ws.chat.twitch.tv:443");
+    const client = new WebSocket(process.env.TWITCH_WS_URL);
 
     client.onopen = () => {
       client.send(`PASS ${process.env.TWITCH_OAUTH_PASS}`);
